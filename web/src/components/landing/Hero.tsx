@@ -1,16 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePriceStore } from "@/stores/usePriceStore";
-import { ArrowRight, TrendingUp, BarChart3 } from "lucide-react";
+import { ArrowRight, TrendingUp, BarChart3, Copy, Check } from "lucide-react";
 
 export function Hero() {
   const priceData = usePriceStore((state) => state.price);
   const changePct = priceData?.changePct24h ?? 0;
 
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("Coming Soon");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 bg-[var(--background)]/80 backdrop-blur-md border-b border-[var(--border)]">
+        <span className="font-['Syne'] font-bold text-lg text-[var(--foreground)]">PerpsClaw</span>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-[var(--muted)]">Contract Address:</span>
+          <button
+            onClick={handleCopy}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--surface)]/80 border border-[var(--border)] hover:border-[var(--muted-2)] transition-colors cursor-pointer"
+          >
+            <span className="text-[var(--foreground)] font-medium">Coming Soon</span>
+            {copied ? (
+              <Check className="w-3.5 h-3.5 text-[var(--green)]" />
+            ) : (
+              <Copy className="w-3.5 h-3.5 text-[var(--muted)]" />
+            )}
+          </button>
+        </div>
+      </nav>
+
       {/* Animated gradient background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--shark)]/5 via-transparent to-[var(--grid-agent)]/5 animate-pulse"
