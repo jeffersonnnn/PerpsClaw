@@ -13,7 +13,7 @@ export function Hero() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("Coming Soon");
+    navigator.clipboard.writeText("KcSTpBchXdRrdm9seVbptHui8pbAm56fzonCyrqCLAW");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -29,7 +29,7 @@ export function Hero() {
             onClick={handleCopy}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--surface)]/80 border border-[var(--border)] hover:border-[var(--muted-2)] transition-colors cursor-pointer"
           >
-            <span className="text-[var(--foreground)] font-medium">Coming Soon</span>
+            <span className="text-[var(--foreground)] font-medium font-mono text-xs">KcSTpBchXdRrdm9seVbptHui8pbAm56fzonCyrqCLAW</span>
             {copied ? (
               <Check className="w-3.5 h-3.5 text-[var(--green)]" />
             ) : (
