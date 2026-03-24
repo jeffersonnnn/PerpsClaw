@@ -33,7 +33,7 @@ export function Footer() {
                 <Github className="w-5 h-5 text-[var(--muted)]" />
               </a>
               <a
-                href="https://twitter.com/perpsclaw"
+                href="https://x.com/perpetualclaw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center hover:border-[var(--muted-2)] hover:bg-[var(--surface-3)] transition-all duration-300"
